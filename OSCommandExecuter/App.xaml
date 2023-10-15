@@ -1,9 +1,33 @@
-﻿<Application x:Class="OSCommandExecuter.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:OSCommandExecuter"
-             StartupUri="MainWindow.xaml">
+﻿<Application
+    x:Class="OSCommandExecuter.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:OSCommandExecuter"
+    xmlns:view="clr-namespace:OSCommandExecuter.MVVM.View"
+    xmlns:viewModel="clr-namespace:OSCommandExecuter.MVVM.ViewModel"
+    StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml" />
+                <ResourceDictionary Source="Theme/MinimizedButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/MaximizeButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/CloseButtonTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:HistoryViewModel}">
+                <view:HistoryView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
+                <view:SettingsView />
+            </DataTemplate>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
