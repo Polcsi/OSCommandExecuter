@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="Theme/MinimizedButtonTheme.xaml" />
                 <ResourceDictionary Source="Theme/MaximizeButtonTheme.xaml" />
                 <ResourceDictionary Source="Theme/CloseButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/BasicButtonTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
@@ -24,8 +25,17 @@
                 <view:HistoryView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:CommandsViewModel}">
+                <view:CommandsView />
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
                 <view:SettingsView />
+            </DataTemplate>
+
+
+            <DataTemplate DataType="{x:Type viewModel:HelpViewModel}">
+                <view:HelpView />
             </DataTemplate>
 
         </ResourceDictionary>

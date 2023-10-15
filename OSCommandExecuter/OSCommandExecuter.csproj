@@ -71,6 +71,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\CommandsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\HelpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\HistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\BasicButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,10 +117,18 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ViewModel\CommandsViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\HelpViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HistoryViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SettingsViewModel.cs" />
+    <Compile Include="MVVM\View\CommandsView.xaml.cs">
+      <DependentUpon>CommandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\HistoryView.xaml.cs">
       <DependentUpon>HistoryView.xaml</DependentUpon>
     </Compile>
@@ -159,6 +179,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\minimize_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\bell_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\arrow_back_left_navigation_previous_icon.png" />
+    <Resource Include="Icons\arrow_forward_navigation_next_right_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Runtime.WindowsRuntime.4.6.0\build\net461\System.Runtime.WindowsRuntime.targets" Condition="Exists('..\packages\System.Runtime.WindowsRuntime.4.6.0\build\net461\System.Runtime.WindowsRuntime.targets')" />

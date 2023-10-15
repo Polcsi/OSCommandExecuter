@@ -11,10 +11,14 @@ namespace OSCommandExecuter.MVVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand HistoryViewCommand { get; set; }
+        public RelayCommand CommandsViewCommand { get; set; }
         public RelayCommand SettingsViewCommand { get; set; }
+        public RelayCommand HelpViewCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
         public HistoryViewModel HistoryVM { get; set; }
+        public CommandsViewModel CommandsVM { get; set; }
         public SettingsViewModel SettingsVM { get; set; }
+        public HelpViewModel HelpVM { get; set; }
 
         private object _currentView;
         public object CurrentView
@@ -31,7 +35,9 @@ namespace OSCommandExecuter.MVVM.ViewModel
         { 
             HomeVM = new HomeViewModel();
             HistoryVM = new HistoryViewModel();
+            CommandsVM = new CommandsViewModel();
             SettingsVM = new SettingsViewModel();
+            HelpVM = new HelpViewModel();
 
             CurrentView = HomeVM;
 
@@ -45,9 +51,19 @@ namespace OSCommandExecuter.MVVM.ViewModel
                 CurrentView = HistoryVM;
             });
 
+            CommandsViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = CommandsVM;
+            });
+
             SettingsViewCommand = new RelayCommand(o =>
             {
                 CurrentView = SettingsVM;
+            });
+
+            HelpViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = HelpVM;
             });
         }
     }
