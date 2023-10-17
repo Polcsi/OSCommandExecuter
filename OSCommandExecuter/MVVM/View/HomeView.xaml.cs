@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OSCommandExecuter.MVVM.Model;
+using OSCommandExecuter.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,25 @@ namespace OSCommandExecuter.MVVM.View
     /// </summary>
     public partial class HomeView : UserControl
     {
+        HomeViewModel _home = new HomeViewModel();
         public HomeView()
         {
             InitializeComponent();
+            DataContext = _home;
+        }
+
+        private void ExecuteButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get Entered command from 'TextBoxCommand' Input
+            string command = _home.Command.Command;
+
+            if(command == "")
+            {
+                MessageBox.Show("Please enter a command to execute");
+                return;
+            }
+            // Execute command and get output
+            TextBlockOutput.Text = Model.Commands.ExecuteCommandSync(command);
         }
     }
 }

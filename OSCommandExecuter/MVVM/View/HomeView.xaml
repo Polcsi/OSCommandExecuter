@@ -5,103 +5,69 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:OSCommandExecuter.MVVM.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
         <TextBlock
-            Margin="0,0,0,20"
+            Grid.Row="0"
+            Grid.Column="0"
+            Width="auto"
+            Height="auto"
+            Margin="5"
             HorizontalAlignment="Left"
-            FontSize="28"
+            VerticalAlignment="Center"
+            FontFamily="/Fonts/#Poppins"
+            FontSize="26"
             Foreground="White"
-            Text="News" />
-        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
-            <Border Width="400" Height="200">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Offset="0" Color="#5bc3ff" />
-                        <GradientStop Offset="1" Color="#3aa0ff" />
-                    </LinearGradientBrush>
-                </Border.Background>
+            Text="Execute Command" />
 
-                <Border.Clip>
-                    <RectangleGeometry
-                        RadiusX="10"
-                        RadiusY="10"
-                        Rect="0 0 400 200" />
-                </Border.Clip>
-
-                <Grid>
-                    <StackPanel>
-                        <TextBlock
-                            Margin="20,10,10,0"
-                            FontSize="28"
-                            Foreground="White"
-                            Text="World leader&#x0a;in global finance" />
-                        <TextBlock
-                            Margin="20,10,10,0"
-                            FontSize="18"
-                            Foreground="White"
-                            Text="Get started today!" />
-                    </StackPanel>
-                    <Image
-                        Width="145"
-                        Height="145"
-                        Margin="0,0,0,-5"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom"
-                        Source="/Images/man.jpg" />
-                </Grid>
-            </Border>
-            <Border
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="1"
+            VerticalAlignment="Top"
+            Orientation="Horizontal">
+            <TextBox
                 Width="200"
-                Height="200"
-                Margin="45,0,0,0"
-                CornerRadius="10">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Offset="0" Color="#ffc554" />
-                        <GradientStop Offset="1" Color="#ffb73a" />
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
-        </StackPanel>
-
-        <StackPanel>
-            <TextBlock
-                Margin="0,0,0,10"
+                Height="40"
+                Margin="0,0,30,0"
                 HorizontalAlignment="Left"
-                FontSize="20"
-                Foreground="White"
-                Text="Most Watched" />
-            <StackPanel Orientation="Horizontal">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="Margin" Value="15,0,0,0" />
-                    </Style>
-                </StackPanel.Resources>
-                <Border
-                    Width="150"
-                    Height="150"
-                    Margin="0"
-                    Background="#844eff"
-                    CornerRadius="10" />
-                <Border
-                    Width="150"
-                    Height="150"
-                    Background="#4e99ff"
-                    CornerRadius="10" />
-                <Border
-                    Width="150"
-                    Height="150"
-                    Background="#4eff91"
-                    CornerRadius="10" />
-                <Border
-                    Width="150"
-                    Height="150"
-                    Background="#ecff4e"
-                    CornerRadius="10" />
-            </StackPanel>
+                VerticalAlignment="Center"
+                Text="{Binding Command.Command, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" />
+            <Button
+                Width="120"
+                Height="40"
+                Click="ExecuteButton_Click"
+                Style="{StaticResource BasicButtonTheme}">
+                <Button.Content>
+                    <TextBlock
+                        Width="auto"
+                        Height="auto"
+                        Margin="5"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="/Fonts/#Poppins"
+                        FontSize="16"
+                        Foreground="White"
+                        Text="Execute" />
+                </Button.Content>
+            </Button>
         </StackPanel>
-    </StackPanel>
+        <TextBlock
+            x:Name="TextBlockOutput"
+            Grid.Row="3"
+            Width="auto"
+            Height="300"
+            Padding="10"
+            Background="#353340"
+            Foreground="White" />
+    </Grid>
 </UserControl>

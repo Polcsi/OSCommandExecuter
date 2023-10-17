@@ -117,6 +117,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Model\Commands.cs" />
     <Compile Include="MVVM\ViewModel\CommandsViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HelpViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HistoryViewModel.cs" />
@@ -166,10 +167,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MVVM\Model\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\man.jpg" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\close_icon.png" />

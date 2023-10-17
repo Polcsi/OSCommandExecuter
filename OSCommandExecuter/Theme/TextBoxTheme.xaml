@@ -11,7 +11,7 @@
                         <Grid>
                             <Rectangle StrokeThickness="1" />
                             <TextBox
-                                x:Name="SearchBox"
+                                Name="CommandBox"
                                 Margin="1"
                                 Padding="5"
                                 VerticalContentAlignment="Center"
@@ -31,7 +31,7 @@
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                            <DataTrigger Binding="{Binding Text, ElementName=CommandBox}" Value="">
                                                 <Setter Property="Visibility" Value="Visible" />
                                             </DataTrigger>
                                         </Style.Triggers>
