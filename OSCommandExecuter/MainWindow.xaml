@@ -65,18 +65,41 @@
                         <Button
                             Width="40"
                             Height="30"
+                            Padding="0,0,0,5"
                             Click="Button_Minimize_Click"
-                            Style="{StaticResource MinimizeButtonTheme}" />
+                            Style="{StaticResource WindowControlButtonTheme}">
+                            <Button.Content>
+                                <Image
+                                    Width="23"
+                                    Height="23"
+                                    Source="/Icons/minimize_icon.png" />
+                            </Button.Content>
+                        </Button>
                         <Button
                             Width="40"
                             Height="30"
                             Click="WindowStateButton_Click"
-                            Style="{StaticResource MaximizeButtonTheme}" />
+                            Style="{StaticResource WindowControlButtonTheme}">
+                            <Button.Content>
+                                <Image
+                                    Width="23"
+                                    Height="23"
+                                    Source="/Icons/maximize_icon.png" />
+                            </Button.Content>
+                        </Button>
                         <Button
                             Width="40"
                             Height="30"
                             Click="CloseButton_Click"
-                            Style="{StaticResource CloseButtonTheme}" />
+                            Style="{StaticResource WindowControlButtonTheme}"
+                            Tag="0 10 0 0">
+                            <Button.Content>
+                                <Image
+                                    Width="23"
+                                    Height="23"
+                                    Source="/Icons/close_icon.png" />
+                            </Button.Content>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -232,8 +255,15 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="25" />
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="25" />
+                </Grid.RowDefinitions>
 
-                <ContentControl Grid.Column="1" Content="{Binding CurrentView}" />
+                <ContentControl
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Content="{Binding CurrentView}" />
             </Grid>
         </Grid>
     </Border>

@@ -10,9 +10,11 @@ namespace OSCommandExecuter.MVVM.ViewModel
     public class HomeViewModel
     {
         public Commands Command { get; set; }
+        public List<Drive> Drives { get; set; }
         public HomeViewModel() 
         {
-            Command = new Commands();    
+            Command = new Commands();
+            Drives = Drive.getDrives();
         }
     }
 }

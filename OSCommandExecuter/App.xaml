@@ -11,10 +11,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
                 <ResourceDictionary Source="Theme/TextBoxTheme.xaml" />
-                <ResourceDictionary Source="Theme/MinimizedButtonTheme.xaml" />
-                <ResourceDictionary Source="Theme/MaximizeButtonTheme.xaml" />
-                <ResourceDictionary Source="Theme/CloseButtonTheme.xaml" />
                 <ResourceDictionary Source="Theme/BasicButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/WindowControlButton.xaml" />
+                <ResourceDictionary Source="Theme/ComboBoxTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">

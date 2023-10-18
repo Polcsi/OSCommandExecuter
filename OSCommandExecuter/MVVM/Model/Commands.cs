@@ -1,11 +1,6 @@
 ﻿using OSCommandExecuter.Core;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Windows;
 
 namespace OSCommandExecuter.MVVM.Model
 {
@@ -26,16 +21,18 @@ namespace OSCommandExecuter.MVVM.Model
         {
             _command = "git --version";
         }
-        static public string ExecuteCommandSync(object command)
+        static public string ExecuteCommandSync(object command, Drive drive)
         {
             try
             {
+                string commandPrefix = $"cd / & {drive.VolumeLabel}: &";
+                string fullCommand = $"{commandPrefix} {command}";
                 // create the ProcessStartInfo using "cmd" as the program to be run,
                 // and "/c " as the parameters.
                 // Incidentally, /c tells cmd that we want it to execute the command that follows,
                 // and then exit.
                 System.Diagnostics.ProcessStartInfo procStartInfo =
-                    new System.Diagnostics.ProcessStartInfo("cmd", "/c " + command);
+                    new System.Diagnostics.ProcessStartInfo("cmd", "/c " + fullCommand);
 
                 // The following commands are needed to redirect the standard output.
                 // This means that it will be redirected to the Process.StandardOutput StreamReader.
@@ -54,35 +51,10 @@ namespace OSCommandExecuter.MVVM.Model
             }
             catch (Exception objException)
             {
-                // Log the exception
+                // Show error message box
+                MessageBox.Show(objException.ToString());
                 return objException.ToString();
             }
         }
-        //static public void ExecuteCommandAsync(string command)
-        //{
-        //    try
-        //    {
-        //        //Asynchronously start the Thread to process the Execute command request.
-        //        Thread objThread = new Thread(new ParameterizedThreadStart(ExecuteCommandSync));
-        //        //Make the thread as background thread.
-        //        objThread.IsBackground = true;
-        //        //Set the Priority of the thread.
-        //        objThread.Priority = ThreadPriority.AboveNormal;
-        //        //Start the thread.
-        //        objThread.Start(command);
-        //    }
-        //    catch (ThreadStartException objException)
-        //    {
-        //        // Log the exception
-        //    }
-        //    catch (ThreadAbortException objException)
-        //    {
-        //        // Log the exception
-        //    }
-        //    catch (Exception objException)
-        //    {
-        //        // Log the exception
-        //    }
-        //}
     }
 }

@@ -1,30 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="BasicButtonTheme" TargetType="{x:Type Button}">
+    <Style x:Key="WindowControlButtonTheme" TargetType="{x:Type Button}">
         <Style.Setters>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border
                             x:Name="button"
-                            Width="{TemplateBinding Width}"
-                            Height="{TemplateBinding Height}"
                             Padding="{TemplateBinding Padding}"
-                            Background="#312e45"
-                            BorderBrush="#544f78"
-                            BorderThickness="1"
-                            CornerRadius="20"
+                            Background="#1e1e2a"
+                            CornerRadius="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Tag}"
                             SnapsToDevicePixels="True">
-                            <Border.Effect>
-                                <DropShadowEffect />
-                            </Border.Effect>
-                            <Grid>
-                                <ContentPresenter
-                                    x:Name="MyContentPresenter"
-                                    Margin="0,0,0,0"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Content="{TemplateBinding Content}" />
-                            </Grid>
+                            <ContentPresenter
+                                x:Name="MyContentPresenter"
+                                Margin="0,0,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}" />
                         </Border>
 
                         <ControlTemplate.Triggers>
@@ -35,7 +26,7 @@
                                             <ColorAnimation
                                                 Storyboard.TargetName="button"
                                                 Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                                To="#1e1e2a"
+                                                To="#312e45"
                                                 Duration="0:0:0.2" />
                                         </Storyboard>
                                     </BeginStoryboard>
@@ -46,7 +37,7 @@
                                             <ColorAnimation
                                                 Storyboard.TargetName="button"
                                                 Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                                To="#312e45"
+                                                To="#1e1e2a"
                                                 Duration="0:0:0.2" />
                                         </Storyboard>
                                     </BeginStoryboard>
